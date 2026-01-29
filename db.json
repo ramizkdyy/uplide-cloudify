@@ -1,0 +1,114 @@
+{
+  "subscriptions": [
+    {
+      "id": "1",
+      "name": "Slack",
+      "category": "Communication",
+      "department": "Engineering",
+      "price": 8,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-15",
+      "logo": "https://logo.clearbit.com/slack.com"
+    },
+    {
+      "id": "2",
+      "name": "AWS",
+      "category": "Infrastructure",
+      "department": "Engineering",
+      "price": 450,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-10",
+      "logo": "https://logo.clearbit.com/aws.amazon.com"
+    },
+    {
+      "id": "3",
+      "name": "Figma",
+      "category": "Design",
+      "department": "Design",
+      "price": 15,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-20",
+      "logo": "https://logo.clearbit.com/figma.com"
+    },
+    {
+      "id": "4",
+      "name": "GitHub",
+      "category": "Development",
+      "department": "Engineering",
+      "price": 21,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-12",
+      "logo": "https://logo.clearbit.com/github.com"
+    },
+    {
+      "id": "5",
+      "name": "Notion",
+      "category": "Productivity",
+      "department": "Operations",
+      "price": 10,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-18",
+      "logo": "https://logo.clearbit.com/notion.so"
+    },
+    {
+      "id": "6",
+      "name": "HubSpot",
+      "category": "Marketing",
+      "department": "Sales",
+      "price": 800,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-05",
+      "logo": "https://logo.clearbit.com/hubspot.com"
+    },
+    {
+      "id": "7",
+      "name": "Zoom",
+      "category": "Communication",
+      "department": "Operations",
+      "price": 20,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-25",
+      "logo": "https://logo.clearbit.com/zoom.us"
+    },
+    {
+      "id": "8",
+      "name": "Adobe Creative Cloud",
+      "category": "Design",
+      "department": "Design",
+      "price": 54.99,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-08",
+      "logo": "https://logo.clearbit.com/adobe.com"
+    },
+    {
+      "id": "9",
+      "name": "Salesforce",
+      "category": "CRM",
+      "department": "Sales",
+      "price": 1200,
+      "billingCycle": "monthly",
+      "status": "inactive",
+      "nextBillingDate": "2025-03-01",
+      "logo": "https://logo.clearbit.com/salesforce.com"
+    },
+    {
+      "id": "10",
+      "name": "Jira",
+      "category": "Project Management",
+      "department": "Engineering",
+      "price": 7,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-14",
+      "logo": "https://logo.clearbit.com/atlassian.com"
+    }
+  ]
+}

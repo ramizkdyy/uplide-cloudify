@@ -5,7 +5,7 @@
       "name": "Slack",
       "category": "Communication",
       "department": "Engineering",
-      "price": 8,
+      "price": 80,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-15"
@@ -15,7 +15,7 @@
       "name": "AWS",
       "category": "Infrastructure",
       "department": "Engineering",
-      "price": 450,
+      "price": 1250,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-10"
@@ -25,7 +25,7 @@
       "name": "Figma",
       "category": "Design",
       "department": "Design",
-      "price": 15,
+      "price": 150,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-20"
@@ -35,7 +35,7 @@
       "name": "GitHub",
       "category": "Development",
       "department": "Engineering",
-      "price": 21,
+      "price": 210,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-12"
@@ -45,7 +45,7 @@
       "name": "Notion",
       "category": "Productivity",
       "department": "Operations",
-      "price": 10,
+      "price": 100,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-18"
@@ -65,7 +65,7 @@
       "name": "Zoom",
       "category": "Communication",
       "department": "Operations",
-      "price": 20,
+      "price": 200,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-25"
@@ -75,7 +75,7 @@
       "name": "Adobe Creative Cloud",
       "category": "Design",
       "department": "Design",
-      "price": 54.99,
+      "price": 549,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-08"
@@ -95,10 +95,160 @@
       "name": "Jira",
       "category": "Project Management",
       "department": "Engineering",
-      "price": 7,
+      "price": 70,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-14"
+    },
+    {
+      "id": "11",
+      "name": "Microsoft Teams",
+      "category": "Communication",
+      "department": "Operations",
+      "price": 120,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-16"
+    },
+    {
+      "id": "12",
+      "name": "Google Workspace",
+      "category": "Productivity",
+      "department": "Operations",
+      "price": 360,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-11"
+    },
+    {
+      "id": "13",
+      "name": "Mailchimp",
+      "category": "Marketing",
+      "department": "Sales",
+      "price": 299,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-19"
+    },
+    {
+      "id": "14",
+      "name": "Adobe XD",
+      "category": "Design",
+      "department": "Design",
+      "price": 99,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-22"
+    },
+    {
+      "id": "15",
+      "name": "Vercel",
+      "category": "Infrastructure",
+      "department": "Engineering",
+      "price": 250,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-13"
+    },
+    {
+      "id": "16",
+      "name": "MongoDB Atlas",
+      "category": "Infrastructure",
+      "department": "Engineering",
+      "price": 570,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-17"
+    },
+    {
+      "id": "17",
+      "name": "Sketch",
+      "category": "Design",
+      "department": "Design",
+      "price": 99,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-21"
+    },
+    {
+      "id": "18",
+      "name": "Linear",
+      "category": "Project Management",
+      "department": "Engineering",
+      "price": 80,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-09"
+    },
+    {
+      "id": "19",
+      "name": "Asana",
+      "category": "Project Management",
+      "department": "Operations",
+      "price": 135,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-24"
+    },
+    {
+      "id": "20",
+      "name": "Intercom",
+      "category": "CRM",
+      "department": "Sales",
+      "price": 499,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-07"
+    },
+    {
+      "id": "21",
+      "name": "GitLab",
+      "category": "Development",
+      "department": "Engineering",
+      "price": 190,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-26"
+    },
+    {
+      "id": "22",
+      "name": "Postman",
+      "category": "Development",
+      "department": "Engineering",
+      "price": 140,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-14"
+    },
+    {
+      "id": "23",
+      "name": "Airtable",
+      "category": "Productivity",
+      "department": "Operations",
+      "price": 200,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-23"
+    },
+    {
+      "id": "24",
+      "name": "Miro",
+      "category": "Design",
+      "department": "Design",
+      "price": 80,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-28"
+    },
+    {
+      "id": "25",
+      "name": "Zendesk",
+      "category": "CRM",
+      "department": "Sales",
+      "price": 890,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2025-02-06"
     }
   ]
 }

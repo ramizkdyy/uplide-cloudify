@@ -3,6 +3,8 @@
 import { useMemo } from "react";
 import { useSubscriptions } from "@/lib/hooks/useSubscriptions";
 import { CategoryChart } from "@/components/dashboard/CategoryChart";
+import { DashboardSkeleton } from "@/components/dashboard/DashboardSkeleton";
+
 
 export default function DashboardPage() {
     const { data: subscriptions, isLoading } = useSubscriptions();
@@ -41,13 +43,9 @@ export default function DashboardPage() {
     }, [subscriptions]);
 
 
-    if (isLoading) {
-        return (
-            <div className="flex items-center justify-center h-full">
-                <div className="text-xl text-muted-foreground">Loading...</div>
-            </div>
-        );
-    }
+   if (isLoading) {
+  return <DashboardSkeleton />;
+}
 
     if (!stats) {
         return (

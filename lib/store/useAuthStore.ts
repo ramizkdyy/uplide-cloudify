@@ -19,7 +19,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
         name: "Admin User",
       };
       
-      document.cookie = "auth-token=mock-token; path=/; max-age=86400";
+      document.cookie = "auth-token=mock-token; path=/; max-age=86400";+
       
       set({ user, isAuthenticated: true });
     } else {

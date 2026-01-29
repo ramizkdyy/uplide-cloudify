@@ -13,7 +13,6 @@ export interface Subscription {
   billingCycle: "monthly" | "yearly";
   status: "active" | "inactive";
   nextBillingDate: string;
-  logo?: string;
 }
 
 export interface AuthState {

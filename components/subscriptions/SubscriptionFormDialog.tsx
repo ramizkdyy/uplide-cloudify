@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -122,7 +122,7 @@ export function SubscriptionFormDialog({
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
-<FormField
+              <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
@@ -245,39 +245,54 @@ export function SubscriptionFormDialog({
               />
 
               <FormField
-                control={form.control}
-                name="nextBillingDate"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Next Billing Date</FormLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl>
-                          <Button
-                            variant="outline"
-                            className={cn(
-                              "w-full justify-start text-left font-normal bg-white ",
-                              !field.value && "text-muted-foreground"
-                            )}
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {field.value ? format(new Date(field.value), "PPP") : "Pick a date"}
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value ? new Date(field.value) : undefined}
-                          onSelect={(date) => field.onChange(date ? format(date, "yyyy-MM-dd") : "")}
-                          initialFocus
-                        />
-                      </PopoverContent>
-                    </Popover>
-                    <FormMessage />
-                  </FormItem>
+  control={form.control}
+  name="nextBillingDate"
+  render={({ field }) => {
+    const [open, setOpen] = useState(false);
+    
+    return (
+      <FormItem>
+        <FormLabel>Next Billing Date</FormLabel>
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger asChild>
+            <FormControl>
+              <Button
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-normal bg-white",
+                  !field.value && "text-muted-foreground"
                 )}
+              >
+                <CalendarIcon className="mr-2 h-4 w-4" />
+                {field.value ? format(new Date(field.value), "PPP") : "Pick a date"}
+              </Button>
+            </FormControl>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto h-auto p-0 flex flex-col" align="start">
+            <div className="flex-1">
+              <Calendar
+                mode="single"
+                selected={field.value ? new Date(field.value) : undefined}
+                onSelect={(date) => field.onChange(date ? format(date, "yyyy-MM-dd") : "")}
+                initialFocus
               />
+            </div>
+            <div className="p-3 border-t">
+              <Button
+                type="button"
+                className="w-full bg-hunter-green hover:bg-hunter-green/90"
+                onClick={() => setOpen(false)}
+              >
+                OK
+              </Button>
+            </div>
+          </PopoverContent>
+        </Popover>
+        <FormMessage />
+      </FormItem>
+    );
+  }}
+/>
             </div>
 
             <DialogFooter>

@@ -146,6 +146,6 @@ Build errors because `useSearchParams` requires a Suspense boundary in Next.js 1
 
 ## Deployment
 
-The app is deployed on Vercel: [Live Demo](your-vercel-url)
+The app is deployed on Vercel: [Live Demo](https://uplide-cloudify-esrf3gu88-ramizdkys-projects.vercel.app)
 
 > Note: In production, JSON Server is replaced with static data.

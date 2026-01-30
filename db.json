@@ -1,16 +1,6 @@
 {
   "subscriptions": [
     {
-      "id": "3",
-      "name": "asd",
-      "category": "Design",
-      "department": "Design",
-      "price": 15000,
-      "billingCycle": "monthly",
-      "status": "active",
-      "nextBillingDate": "2025-02-20"
-    },
-    {
       "id": "4",
       "name": "GitHub",
       "category": "Development",
@@ -229,16 +219,6 @@
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-06"
-    },
-    {
-      "id": "7b26",
-      "name": "Test Subs",
-      "category": "Design",
-      "department": "Design",
-      "price": 10000,
-      "billingCycle": "monthly",
-      "status": "active",
-      "nextBillingDate": "2026-02-08"
     }
   ]
 }

@@ -29,16 +29,16 @@ export function SubscriptionFilters({
   const departments = ["all", "Engineering", "Design", "Sales", "Operations"];
 
   return (
-    <div className="flex gap-4 items-center">
+    <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
       <Input
         placeholder="Search subscriptions..."
         value={searchQuery}
         onChange={(e) => onSearchChange(e.target.value)}
-        className="max-w-xs bg-white"
+        className="w-full sm:max-w-xs bg-white"
       />
 
       <Select value={departmentFilter} onValueChange={onDepartmentChange}>
-        <SelectTrigger className="w-[200px] bg-white">
+        <SelectTrigger className="w-full sm:w-[200px] bg-white">
           <SelectValue placeholder="All Departments" />
         </SelectTrigger>
         <SelectContent>
@@ -52,7 +52,7 @@ export function SubscriptionFilters({
       </Select>
 
       <Select value={sortBy} onValueChange={onSortChange}>
-        <SelectTrigger className="w-[200px]  bg-white">
+        <SelectTrigger className="w-full sm:w-[200px] bg-white">
           <SelectValue placeholder="Default"/>
         </SelectTrigger>
         <SelectContent>

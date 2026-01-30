@@ -106,7 +106,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <div className="flex-1 bg-hunter-green flex items-center justify-center p-8">
+      <div className="hidden lg:flex flex-1 bg-hunter-green items-center justify-center p-8">
         <h1 className="text-8xl font-bold text-dust-grey tracking-wider">
           CLOUDIFY
         </h1>

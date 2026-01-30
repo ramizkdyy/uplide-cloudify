@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     Table,
     TableBody,
@@ -17,12 +17,17 @@ interface SubscriptionsTableProps {
     subscriptions: Subscription[];
     onEdit: (subscription: Subscription) => void;
     onDelete: (id: string) => void;
+    resetPage?: boolean;
 }
 
 const ITEMS_PER_PAGE = 10;
 
-export function SubscriptionsTable({ subscriptions, onEdit, onDelete }: SubscriptionsTableProps) {
+export function SubscriptionsTable({ subscriptions, onEdit, onDelete,resetPage  }: SubscriptionsTableProps) {
     const [currentPage, setCurrentPage] = useState(1);
+
+        useEffect(() => {
+        setCurrentPage(1);
+    }, [subscriptions.length, resetPage]);
 
     const totalPages = Math.ceil(subscriptions.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -101,9 +106,9 @@ export function SubscriptionsTable({ subscriptions, onEdit, onDelete }: Subscrip
                         size="sm"
                         onClick={handlePrevious}
                         disabled={currentPage === 1}
+                        className="bg-white"
                     >
-                        <ChevronLeft className="h-4 w-4 mr-1" />
-                        Previous
+                        <ChevronLeft className="h-4 w-4" />
                     </Button>
                     <div className="text-sm font-medium">
                         Page {currentPage} of {totalPages}
@@ -113,9 +118,9 @@ export function SubscriptionsTable({ subscriptions, onEdit, onDelete }: Subscrip
                         size="sm"
                         onClick={handleNext}
                         disabled={currentPage === totalPages}
+                        className="bg-white"
                     >
-                        Next
-                        <ChevronRight className="h-4 w-4 ml-1" />
+                        <ChevronRight className="h-4 w-4" />
                     </Button>
                 </div>
             </div>

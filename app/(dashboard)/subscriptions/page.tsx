@@ -118,6 +118,7 @@ function SubscriptionsContent() {
         subscriptions={filteredSubscriptions}
         onEdit={handleEdit}
         onDelete={handleDelete}
+        resetPage={searchQuery !== "" || departmentFilter !== "all" || sortBy !== "default"}
       />
 
       <SubscriptionFormDialog

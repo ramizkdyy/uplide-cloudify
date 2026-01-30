@@ -2,10 +2,10 @@
   "subscriptions": [
     {
       "id": "3",
-      "name": "Figma",
+      "name": "asd",
       "category": "Design",
       "department": "Design",
-      "price": 150,
+      "price": 15000,
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-20"

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useSubscriptions } from "@/lib/hooks/useSubscriptions";
 import { useSubscriptionMutations } from "@/lib/hooks/useSubscriptionMutations";
 import { SubscriptionFilters } from "@/components/subscriptions/SubscriptionFilters";
@@ -12,14 +13,28 @@ import { Plus } from "lucide-react";
 import { Subscription } from "@/lib/types";
 
 export default function SubscriptionsPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  
   const { data: subscriptions, isLoading } = useSubscriptions();
   const { createSubscription, updateSubscription, deleteSubscription } = useSubscriptionMutations();
   
-  const [searchQuery, setSearchQuery] = useState("");
-  const [departmentFilter, setDepartmentFilter] = useState("all");
-  const [sortBy, setSortBy] = useState("default");
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
+  const [departmentFilter, setDepartmentFilter] = useState(searchParams.get("department") || "all");
+  const [sortBy, setSortBy] = useState(searchParams.get("sort") || "default");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedSubscription, setSelectedSubscription] = useState<Subscription | undefined>();
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    
+    if (searchQuery) params.set("search", searchQuery);
+    if (departmentFilter !== "all") params.set("department", departmentFilter);
+    if (sortBy !== "default") params.set("sort", sortBy);
+    
+    const queryString = params.toString();
+    router.replace(queryString ? `/subscriptions?${queryString}` : "/subscriptions");
+  }, [searchQuery, departmentFilter, sortBy, router]);
 
   const filteredSubscriptions = useMemo(() => {
     if (!subscriptions) return [];

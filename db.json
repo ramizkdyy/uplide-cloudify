@@ -42,7 +42,7 @@
     },
     {
       "id": "9",
-      "name": "Salesforce",
+      "name": "asdasdasd",
       "category": "CRM",
       "department": "Sales",
       "price": 1200,
@@ -218,6 +218,16 @@
       "price": 1000,
       "billingCycle": "monthly",
       "status": "active",
+      "nextBillingDate": "2026-01-31"
+    },
+    {
+      "id": "51cb",
+      "name": "Test Subs",
+      "category": "Infrastructure",
+      "department": "Sales",
+      "price": 100,
+      "billingCycle": "monthly",
+      "status": "inactive",
       "nextBillingDate": "2026-01-31"
     }
   ]

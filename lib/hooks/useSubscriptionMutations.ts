@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createSubscription, updateSubscription, deleteSubscription } from "@/lib/api/subscriptions";
 import { Subscription } from "@/lib/types";
+import { toast } from "sonner";
 
 export function useSubscriptionMutations() {
   const queryClient = useQueryClient();
@@ -23,8 +24,12 @@ export function useSubscriptionMutations() {
 
       return { previousSubscriptions };
     },
+    onSuccess: () => {
+      toast.success("Subscription added successfully");
+    },
     onError: (err, newSubscription, context) => {
       queryClient.setQueryData(["subscriptions"], context?.previousSubscriptions);
+      toast.error("Failed to add subscription");
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["subscriptions"] });
@@ -47,8 +52,12 @@ export function useSubscriptionMutations() {
 
       return { previousSubscriptions };
     },
+    onSuccess: () => {
+      toast.success("Subscription updated successfully");
+    },
     onError: (err, variables, context) => {
       queryClient.setQueryData(["subscriptions"], context?.previousSubscriptions);
+      toast.error("Failed to update subscription");
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["subscriptions"] });
@@ -68,8 +77,12 @@ export function useSubscriptionMutations() {
 
       return { previousSubscriptions };
     },
+    onSuccess: () => {
+      toast.success("Subscription deleted successfully");
+    },
     onError: (err, id, context) => {
       queryClient.setQueryData(["subscriptions"], context?.previousSubscriptions);
+      toast.error("Failed to delete subscription");
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ["subscriptions"] });

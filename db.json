@@ -1,16 +1,6 @@
 {
   "subscriptions": [
     {
-      "id": "4",
-      "name": "GitHub",
-      "category": "Development",
-      "department": "Engineering",
-      "price": 210,
-      "billingCycle": "monthly",
-      "status": "active",
-      "nextBillingDate": "2025-02-12"
-    },
-    {
       "id": "5",
       "name": "Notion",
       "category": "Productivity",
@@ -219,6 +209,16 @@
       "billingCycle": "monthly",
       "status": "active",
       "nextBillingDate": "2025-02-06"
+    },
+    {
+      "id": "ec62",
+      "name": "AGagagaa",
+      "category": "Development",
+      "department": "Sales",
+      "price": 1000,
+      "billingCycle": "monthly",
+      "status": "active",
+      "nextBillingDate": "2026-01-31"
     }
   ]
 }

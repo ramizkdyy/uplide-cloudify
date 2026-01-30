@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { Suspense, useState, useMemo, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSubscriptions } from "@/lib/hooks/useSubscriptions";
 import { useSubscriptionMutations } from "@/lib/hooks/useSubscriptionMutations";
@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Subscription } from "@/lib/types";
 
-export default function SubscriptionsPage() {
+function SubscriptionsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
@@ -127,5 +127,13 @@ export default function SubscriptionsPage() {
         onSubmit={handleFormSubmit}
       />
     </div>
+  );
+}
+
+export default function SubscriptionsPage() {
+  return (
+    <Suspense fallback={<SubscriptionsSkeleton />}>
+      <SubscriptionsContent />
+    </Suspense>
   );
 }

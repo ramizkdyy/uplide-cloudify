@@ -11,7 +11,8 @@ A modern dashboard for managing SaaS subscriptions, costs, billing cycles, and u
 - **Form Management:** React Hook Form + Zod
 - **Styling:** Tailwind CSS
 - **Charts:** Recharts
-- **API:** JSON Server
+- **API (Development):** JSON Server
+- **API (Production):** MockAPI.io
 
 ## Getting Started
 
@@ -38,7 +39,7 @@ npm install
 cp .env.example .env.local
 ```
 
-4. Start JSON Server (in a separate terminal)
+4. Start JSON Server for development (in a separate terminal)
 ```bash
 npm run json-server
 ```
@@ -88,6 +89,11 @@ Access the app at [http://localhost:3000](http://localhost:3000)
 - **TanStack Query** for server state - handles caching, refetching, optimistic updates
 - **Zustand** for auth state - simple and lightweight
 
+### API Strategy
+- **Development:** JSON Server running locally on port 3001 with `db.json`
+- **Production:** MockAPI.io for cloud-based persistence
+- Environment variable `NEXT_PUBLIC_API_URL` controls the API endpoint
+
 ### Modular Structure
 Organized by feature. Each feature has its own components and hooks grouped together.
 
@@ -126,8 +132,8 @@ retry: (failureCount, error: any) => {
 }
 ```
 
-### 3. Next.js 15 useSearchParams
-Build errors because `useSearchParams` requires a Suspense boundary in Next.js 15. Fixed by wrapping the component in Suspense with a skeleton fallback.
+### 3. Next.js 16 useSearchParams
+Build errors because `useSearchParams` requires a Suspense boundary in Next.js 16. Fixed by wrapping the component in Suspense with a skeleton fallback.
 
 ## Features
 
@@ -148,4 +154,4 @@ Build errors because `useSearchParams` requires a Suspense boundary in Next.js 1
 
 The app is deployed on Vercel: [Live Demo](uplide-cloudify.vercel.app)
 
-> Note: In production, JSON Server is replaced with static data.
+> Note: The application uses JSON Server locally for development and MockAPI.io in production for reliable cloud-based data storage.

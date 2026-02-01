@@ -22,10 +22,10 @@ interface SubscriptionsTableProps {
 
 const ITEMS_PER_PAGE = 10;
 
-export function SubscriptionsTable({ subscriptions, onEdit, onDelete,resetPage  }: SubscriptionsTableProps) {
+export function SubscriptionsTable({ subscriptions, onEdit, onDelete, resetPage }: SubscriptionsTableProps) {
     const [currentPage, setCurrentPage] = useState(1);
 
-        useEffect(() => {
+    useEffect(() => {
         setCurrentPage(1);
     }, [subscriptions.length, resetPage]);
 
@@ -70,7 +70,12 @@ export function SubscriptionsTable({ subscriptions, onEdit, onDelete,resetPage  
                                 <TableCell className="font-medium">{sub.name}</TableCell>
                                 <TableCell>{sub.category}</TableCell>
                                 <TableCell>{sub.department}</TableCell>
-                                <TableCell>${sub.price}</TableCell>
+                                <TableCell>
+                                    ${sub.billingCycle === "yearly"
+                                        ? (sub.price / 12).toFixed(2)
+                                        : sub.price.toFixed(2)
+                                    }/mo
+                                </TableCell>
                                 <TableCell className="capitalize">{sub.billingCycle}</TableCell>
                                 <TableCell>
                                     <div className="flex items-center gap-2">

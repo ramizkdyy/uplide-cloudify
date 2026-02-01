@@ -15,10 +15,10 @@ import { Subscription } from "@/lib/types";
 function SubscriptionsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
+
   const { data: subscriptions, isLoading } = useSubscriptions();
   const { createSubscription, updateSubscription, deleteSubscription } = useSubscriptionMutations();
-  
+
   const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
   const [departmentFilter, setDepartmentFilter] = useState(searchParams.get("department") || "all");
   const [sortBy, setSortBy] = useState(searchParams.get("sort") || "default");
@@ -27,11 +27,11 @@ function SubscriptionsContent() {
 
   useEffect(() => {
     const params = new URLSearchParams();
-    
+
     if (searchQuery) params.set("search", searchQuery);
     if (departmentFilter !== "all") params.set("department", departmentFilter);
     if (sortBy !== "default") params.set("sort", sortBy);
-    
+
     const queryString = params.toString();
     router.replace(queryString ? `/subscriptions?${queryString}` : "/subscriptions");
   }, [searchQuery, departmentFilter, sortBy, router]);
@@ -42,7 +42,7 @@ function SubscriptionsContent() {
     let result = [...subscriptions];
 
     if (searchQuery) {
-      result = result.filter(sub => 
+      result = result.filter(sub =>
         sub.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
@@ -52,9 +52,17 @@ function SubscriptionsContent() {
     }
 
     if (sortBy === "price-asc") {
-      result.sort((a, b) => a.price - b.price);
+      result.sort((a, b) => {
+        const priceA = a.billingCycle === "yearly" ? a.price / 12 : a.price;
+        const priceB = b.billingCycle === "yearly" ? b.price / 12 : b.price;
+        return priceA - priceB;
+      });
     } else if (sortBy === "price-desc") {
-      result.sort((a, b) => b.price - a.price);
+      result.sort((a, b) => {
+        const priceA = a.billingCycle === "yearly" ? a.price / 12 : a.price;
+        const priceB = b.billingCycle === "yearly" ? b.price / 12 : b.price;
+        return priceB - priceA;
+      });
     }
 
     return result;
@@ -97,13 +105,13 @@ function SubscriptionsContent() {
 
   return (
     <div className="space-y-6">
-<div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-  <h1 className="text-2xl sm:text-3xl font-bold">Subscriptions</h1>
-  <Button onClick={handleAddNew} className="bg-hunter-green hover:bg-hunter-green/90 w-full sm:w-auto">
-    <Plus className="h-4 w-4 mr-2" />
-    Add Subscription
-  </Button>
-</div>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <h1 className="text-2xl sm:text-3xl font-bold">Subscriptions</h1>
+        <Button onClick={handleAddNew} className="bg-hunter-green hover:bg-hunter-green/90 w-full sm:w-auto">
+          <Plus className="h-4 w-4 mr-2" />
+          Add Subscription
+        </Button>
+      </div>
 
       <SubscriptionFilters
         searchQuery={searchQuery}
@@ -114,7 +122,7 @@ function SubscriptionsContent() {
         onSortChange={setSortBy}
       />
 
-      <SubscriptionsTable 
+      <SubscriptionsTable
         subscriptions={filteredSubscriptions}
         onEdit={handleEdit}
         onDelete={handleDelete}

@@ -15,20 +15,25 @@ export default function DashboardPage() {
         const activeSubscriptions = subscriptions.filter(subs => subs.status === "active");
 
         const totalMonthlySpending = activeSubscriptions.reduce((sum, sub) => {
-            return sum + sub.price;
+            const monthlyPrice = sub.billingCycle === "yearly" ? sub.price / 12 : sub.price;
+            return sum + monthlyPrice;
         }, 0);
 
         const mostExpensive = activeSubscriptions.reduce((max, sub) => {
-            return sub.price > max.price ? { name: sub.name, price: sub.price } : max;
+            const monthlyPrice = sub.billingCycle === "yearly" ? sub.price / 12 : sub.price;
+            return monthlyPrice > max.price
+                ? { name: sub.name, price: monthlyPrice }
+                : max;
         }, { name: "", price: 0 });
 
         const categoryData = activeSubscriptions.reduce((acc, sub) => {
+            const monthlyPrice = sub.billingCycle === "yearly" ? sub.price / 12 : sub.price;
             const existing = acc.find(item => item.name === sub.category);
 
             if (existing) {
-                existing.value += sub.price;
+                existing.value += monthlyPrice;
             } else {
-                acc.push({ name: sub.category, value: sub.price });
+                acc.push({ name: sub.category, value: monthlyPrice });
             }
 
             return acc;
@@ -42,10 +47,9 @@ export default function DashboardPage() {
         };
     }, [subscriptions]);
 
-
-   if (isLoading) {
-  return <DashboardSkeleton />;
-}
+    if (isLoading) {
+        return <DashboardSkeleton />;
+    }
 
     if (!stats) {
         return (
@@ -55,7 +59,7 @@ export default function DashboardPage() {
         );
     }
 
-        console.log("categoryData:", stats.categoryData);
+    console.log("categoryData:", stats.categoryData);
 
     return (
         <div className="space-y-6">

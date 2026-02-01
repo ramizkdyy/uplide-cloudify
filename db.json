@@ -41,16 +41,6 @@
       "nextBillingDate": "2025-02-08"
     },
     {
-      "id": "9",
-      "name": "asdasdasd",
-      "category": "CRM",
-      "department": "Sales",
-      "price": 1200,
-      "billingCycle": "monthly",
-      "status": "inactive",
-      "nextBillingDate": "2025-03-01"
-    },
-    {
       "id": "10",
       "name": "Jira",
       "category": "Project Management",
@@ -229,6 +219,26 @@
       "billingCycle": "monthly",
       "status": "inactive",
       "nextBillingDate": "2026-01-31"
+    },
+    {
+      "id": "20f1",
+      "name": "Teesstt",
+      "category": "Design",
+      "department": "Design",
+      "price": 24000,
+      "billingCycle": "yearly",
+      "status": "active",
+      "nextBillingDate": "2026-02-07"
+    },
+    {
+      "id": "c042",
+      "name": "Test Annual",
+      "category": "Infrastructure",
+      "department": "Sales",
+      "price": 120000,
+      "billingCycle": "yearly",
+      "status": "active",
+      "nextBillingDate": "2026-05-07"
     }
   ]
 }
